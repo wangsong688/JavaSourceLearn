@@ -32,11 +32,12 @@ public class RBTree <K extends Comparable<K>, V> {
         //1.找到插入的位置
         RBNode parent = null;
         RBNode x = this.root;
+        int cmp = 0;
         while(x != null) {
             parent = x;
 
             //a > b 则返回 1，否则返回 -1 ，相等返回0
-            int cmp = node.key.compareTo(parent.key);
+             cmp = node.key.compareTo(parent.key);
 
             if(cmp < 0) {
                 x = x.left;
@@ -51,7 +52,7 @@ public class RBTree <K extends Comparable<K>, V> {
         node.parent = parent;
 
         if(parent != null) {
-            if(node.key.compareTo(parent.key) < 0) {
+            if(cmp < 0) {
                 parent.left = node;
             } else {
                 parent.right = node;
