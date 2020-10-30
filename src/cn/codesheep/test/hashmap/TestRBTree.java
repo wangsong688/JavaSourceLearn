@@ -12,6 +12,8 @@ public class TestRBTree {
             String key = sc.next();
             rbt.insert(key, null);
             TreeOperation.show(rbt.getRoot());
+            System.out.println("-----------中序排序结果----------");
+            rbt.inOrderPrint();
         }
     }
 }
